@@ -1,0 +1,22 @@
+// gfg
+class Solution {
+    void rearrange(int arr[], int n) {
+        // code here
+        List<Integer> positive = new ArrayList<Integer>();
+        List<Integer> negative = new ArrayList<Integer>();
+        for(Integer x: arr){
+            if(x>=0)
+                positive.add(x);
+            else
+                negative.add(x);
+        }
+        int pI = 0;
+        int nI =0;
+        for(int i=0;i<arr.length;i++){
+                if(i%2==0 && pI< positive.size() || nI == negative.size())
+                    arr[i] = positive.get(pI++);
+                else if(nI<negative.size() || pI == positive.size())
+                    arr[i] = negative.get(nI++);
+        }
+    }
+}
