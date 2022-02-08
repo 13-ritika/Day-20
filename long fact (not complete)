@@ -1,0 +1,16 @@
+// app 1
+class Solution {
+    int mod = 1000000007;
+    public long[] factorial(long a[], int n) {
+        // code here
+        long result[] = new long[a.length];
+        for(int i=0;i<n;i++){
+            result[i] = fact(a[i]%mod);
+        }
+        return result;
+    }
+    public long fact(long num){
+        if(num==0|| num==1) return 1;
+        return ((num%mod) * (fact(num-1)%mod))%mod;
+    }
+}
